@@ -1,27 +1,104 @@
-# <h1 align="center">ADSO</h1>
+## Actividades Académicas
 
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80" width="100%">
-</p>
+<div align="center">
 
-<h1 align="center">Actividades Académicas</h1>
+| Actividad        | Entrega       | Estado                                                                           | Detalles                                      |
+| ---------------- | ------------- | -------------------------------------------------------------------------------- | --------------------------------------------- |
+| Taller #1        | 15 Junio 2026 | <img src="https://img.shields.io/badge/Pendiente-yellow?style=for-the-badge">    | <a href="#taller-1">Ver actividad</a>         |
+| Actividad #2     | 18 Junio 2026 | <img src="https://img.shields.io/badge/Pendiente-yellow?style=for-the-badge">    | <a href="#actividad-2">Ver actividad</a>      |
+| Quiz Virtual     | 20 Junio 2026 | <img src="https://img.shields.io/badge/Próximo-blue?style=for-the-badge">        | <a href="#quiz-virtual">Ver actividad</a>     |
+| Proyecto Parcial | 30 Junio 2026 | <img src="https://img.shields.io/badge/En%20Proceso-orange?style=for-the-badge"> | <a href="#proyecto-parcial">Ver actividad</a> |
 
-<p align="center">
-Consulta tareas, talleres, proyectos, fechas de entrega y recursos académicos desde un único lugar.
-</p>
+</div>
+
+---
+
+## Taller #1
+
+<table>
+<tr>
+<td width="180">
+
+<img src="https://img.shields.io/badge/Pendiente-yellow?style=for-the-badge">
+
+</td>
+<td>
+
+### Introducción al Desarrollo Web
+
+**Fecha de entrega:** 15 Junio 2026
+
+Aprender los conceptos fundamentales de HTML, CSS y JavaScript mediante actividades prácticas y ejercicios guiados.
+
+</td>
+</tr>
+</table>
 
 ---
 
-## Actividades Pendientes
+## Actividad #2
 
-| Actividad        | Fecha de Entrega | Estado        | Descripción                                                          | Recursos Académicos                          |
-| ---------------- | ---------------- | ------------- | -------------------------------------------------------------------- | -------------------------------------------- |
-| Taller #1        | 15 Junio 2026    | 🟡 Pendiente  | [Ver descripción completa](./actividades/taller-01/README.md)        | [Abrir recursos](./recursos/desarrollo-web/) |
-| Actividad #2     | 18 Junio 2026    | 🟡 Pendiente  | [Ver descripción completa](./actividades/actividad-02/README.md)     | [Abrir recursos](./recursos/bases-de-datos/) |
-| Quiz Virtual     | 20 Junio 2026    | 🔵 Próximo    | [Ver descripción completa](./actividades/quiz-01/README.md)          | [Abrir recursos](./recursos/guias/)          |
-| Proyecto Parcial | 30 Junio 2026    | 🟠 En Proceso | [Ver descripción completa](./actividades/proyecto-parcial/README.md) | [Abrir recursos](./recursos/proyecto/)       |
+<table>
+<tr>
+<td width="180">
+
+<img src="https://img.shields.io/badge/Pendiente-yellow?style=for-the-badge">
+
+</td>
+<td>
+
+### Investigación sobre Bases de Datos
+
+**Fecha de entrega:** 18 Junio 2026
+
+Realizar una investigación sobre bases de datos relacionales y no relacionales, incluyendo ejemplos de aplicación.
+
+</td>
+</tr>
+</table>
 
 ---
-<p align="center">
-Última actualización: Junio 2026
-</p>
+
+## Quiz Virtual
+
+<table>
+<tr>
+<td width="180">
+
+<img src="https://img.shields.io/badge/Próximo-blue?style=for-the-badge">
+
+</td>
+<td>
+
+### Evaluación HTML y CSS
+
+**Fecha de entrega:** 20 Junio 2026
+
+Evaluación virtual de los conocimientos adquiridos sobre HTML y CSS.
+
+</td>
+</tr>
+</table>
+
+---
+
+## Proyecto Parcial
+
+<table>
+<tr>
+<td width="180">
+
+<img src="https://img.shields.io/badge/En%20Proceso-orange?style=for-the-badge">
+
+</td>
+<td>
+
+### Sistema de Gestión Académica
+
+**Fecha de entrega:** 30 Junio 2026
+
+Desarrollo de una aplicación académica aplicando los conocimientos adquiridos durante la formación ADSO.
+
+</td>
+</tr>
+</table>
