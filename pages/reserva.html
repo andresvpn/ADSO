@@ -17,43 +17,33 @@
       }
     }
   </script>
-  <style>
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes barGrow{from{height:0}}
-    .animate-fade-up{animation:fadeInUp .6s ease-out both}
-    .stagger-1{animation-delay:.1s}.stagger-2{animation-delay:.2s}.stagger-3{animation-delay:.3s}.stagger-4{animation-delay:.4s}
-    .hover-lift{transition:transform .2s ease,box-shadow .2s ease}
-    .hover-lift:hover{transform:translateY(-2px);box-shadow:0 8px 25px -5px rgba(0,0,0,.1)}
-    .chart-bar{animation:barGrow .8s ease-out both}
-    .loading-shimmer{background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);background-size:200% 100%;animation:shimmer 1.5s infinite}@keyframes shimmer{from{background-position:-200% 0}to{background-position:200% 0}}
-    @media (prefers-reduced-motion:reduce){.animate-fade-up,.chart-bar{animation:none}}
-  </style>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
   <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="text-xl font-extrabold tracking-tight text-slate-900">Space<span class="text-primary-600">Reserve</span></a>
+        <a href="../index.html" class="text-xl font-extrabold tracking-tight text-slate-900">Space<span class="text-primary-600">Reserve</span></a>
         <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="index.html" class="text-slate-500 hover:text-slate-800 transition">Inicio</a>
+          <a href="../index.html" class="text-slate-500 hover:text-slate-800 transition">Inicio</a>
           <a href="servicios.html" class="text-slate-500 hover:text-slate-800 transition">Servicios</a>
           <a href="reserva.html" class="text-primary-600 border-b-2 border-primary-600 pb-1">Reservar</a>
           <a href="admin.html" class="text-slate-500 hover:text-slate-800 transition">Admin</a>
           <a href="perfil.html" class="text-slate-500 hover:text-slate-800 transition">Mi Perfil</a>
-          <a href="index.html" class="ml-4 bg-slate-100 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-200 transition text-sm font-semibold">Cerrar sesión</a>
+          <a href="../index.html" class="ml-4 bg-slate-100 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-200 transition text-sm font-semibold">Cerrar sesión</a>
         </div>
         <button class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
       <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 text-sm font-medium">
-        <a href="index.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Inicio</a>
+        <a href="../index.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Inicio</a>
         <a href="servicios.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Servicios</a>
         <a href="reserva.html" class="block px-3 py-2 rounded-lg bg-primary-50 text-primary-700">Reservar</a>
         <a href="admin.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Admin</a>
         <a href="perfil.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Mi Perfil</a>
-        <a href="index.html" class="block px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-center font-semibold">Cerrar sesión</a>
+        <a href="../index.html" class="block px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-center font-semibold">Cerrar sesión</a>
       </div>
     </div>
   </nav>
@@ -156,7 +146,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div><span class="text-xl font-extrabold tracking-tight text-white">Space<span class="text-primary-400">Reserve</span></span><p class="text-sm mt-3 leading-relaxed">Plataforma inteligente de reservas para espacios y servicios.</p></div>
-        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Navegación</h4><ul class="space-y-2 text-sm"><li><a href="index.html" class="hover:text-white transition">Inicio</a></li><li><a href="servicios.html" class="hover:text-white transition">Servicios</a></li><li><a href="reserva.html" class="hover:text-white transition">Reservar</a></li><li><a href="admin.html" class="hover:text-white transition">Admin</a></li></ul></div>
+        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Navegación</h4><ul class="space-y-2 text-sm"><li><a href="../index.html" class="hover:text-white transition">Inicio</a></li><li><a href="servicios.html" class="hover:text-white transition">Servicios</a></li><li><a href="reserva.html" class="hover:text-white transition">Reservar</a></li><li><a href="admin.html" class="hover:text-white transition">Admin</a></li></ul></div>
         <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Soporte</h4><ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white transition">Centro de ayuda</a></li><li><a href="#" class="hover:text-white transition">Términos y condiciones</a></li><li><a href="#" class="hover:text-white transition">Política de privacidad</a></li></ul></div>
         <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Contacto</h4><ul class="space-y-2 text-sm"><li>contacto@spacereserve.com</li><li>+57 302 490 6533</li><li>Bogotá, Colombia</li></ul></div>
       </div>
@@ -164,87 +154,6 @@
     </div>
   </footer>
 
-  <script>
-    let currentStep = 1;
-    const totalSteps = 4;
-    let selectedService = 'Habitación Doble';
-
-    function goToStep(step) {
-      for (let i = 1; i <= totalSteps; i++) {
-        document.getElementById(`step-${i}`).classList.add('hidden');
-      }
-      document.getElementById(`step-${step}`).classList.remove('hidden');
-      currentStep = step;
-      const pct = Math.round((step / totalSteps) * 100);
-      document.getElementById('progress-bar').style.width = pct + '%';
-      document.getElementById('step-label').textContent = `Paso ${step} de ${totalSteps}`;
-      document.getElementById('step-pct').textContent = pct + '%';
-      for (let i = 1; i <= totalSteps; i++) {
-        const el = document.getElementById(`s${i}`);
-        el.className = i === step ? 'font-medium text-primary-600' : i < step ? 'font-medium text-emerald-600' : '';
-      }
-    }
-
-    function nextStep() {
-      if (currentStep < totalSteps) {
-        if (currentStep === 3) updateReview();
-        goToStep(currentStep + 1);
-      }
-    }
-
-    function prevStep() {
-      if (currentStep > 1) goToStep(currentStep - 1);
-    }
-
-    function updateReview() {
-      const name = document.getElementById('f-name').value || '—';
-      const email = document.getElementById('f-email').value || '—';
-      const persons = document.getElementById('f-persons').value || '—';
-      const start = document.getElementById('f-start').value;
-      const end = document.getElementById('f-end').value;
-      const fmt = d => d ? new Date(d).toLocaleDateString('es-ES', { day: '2-digit', month: 'short' }) : '—';
-      document.getElementById('r-servicio').textContent = selectedService;
-      document.getElementById('r-nombre').textContent = name;
-      document.getElementById('r-email').textContent = email;
-      document.getElementById('r-personas').textContent = persons;
-      document.getElementById('r-fechas').textContent = `${fmt(start)} → ${fmt(end)} 2026`;
-      // Simple pricing logic
-      const prices = { 'Habitación Doble': 180, 'Suite Ejecutiva': 350, 'Mesa para 4 personas': 150, 'Consulta Odontológica': 60 };
-      const pricePerNight = prices[selectedService] || 180;
-      let total = pricePerNight;
-      if (start && end) {
-        const days = Math.max(1, Math.ceil((new Date(end) - new Date(start)) / (1000 * 60 * 60 * 24)));
-        if (['Habitación Doble', 'Suite Ejecutiva'].includes(selectedService)) total = pricePerNight * days;
-      }
-      document.getElementById('r-total').textContent = '$' + total.toLocaleString('es-CO');
-    }
-
-    function confirmBooking() {
-      const ref = 'SR-' + String(Math.floor(Math.random() * 900 + 100));
-      const data = {
-        ref: ref,
-        servicio: document.getElementById('r-servicio').textContent,
-        nombre: document.getElementById('r-nombre').textContent,
-        email: document.getElementById('r-email').textContent,
-        personas: document.getElementById('r-personas').textContent,
-        fechas: document.getElementById('r-fechas').textContent,
-        total: document.getElementById('r-total').textContent
-      };
-      localStorage.setItem('spacereserve_booking', JSON.stringify(data));
-      window.location.href = 'confirmacion.html?ref=' + ref;
-    }
-
-    // Read URL params to pre-select service
-    const params = new URLSearchParams(window.location.search);
-    const svc = params.get('servicio');
-    if (svc) {
-      const labels = document.querySelectorAll('#step-1 label');
-      const map = { 'habitacion-doble': 'Habitación Doble', 'suite-ejecutiva': 'Suite Ejecutiva', 'mesa-4': 'Mesa para 4 personas', 'consulta-odontologica': 'Consulta Odontológica' };
-      const match = map[svc];
-      if (match) {
-        labels.forEach(l => { const inp = l.querySelector('input'); if (inp.value === match) { inp.checked = true; l.classList.add('border-primary-500', 'bg-primary-50'); selectedService = match; } });
-      }
-    }
-  </script>
+  <script src="../js/reserva.js"></script>
 </body>
 </html>

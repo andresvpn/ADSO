@@ -17,26 +17,16 @@
       }
     }
   </script>
-  <style>
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes barGrow{from{height:0}}
-    .animate-fade-up{animation:fadeInUp .6s ease-out both}
-    .stagger-1{animation-delay:.1s}.stagger-2{animation-delay:.2s}.stagger-3{animation-delay:.3s}.stagger-4{animation-delay:.4s}
-    .hover-lift{transition:transform .2s ease,box-shadow .2s ease}
-    .hover-lift:hover{transform:translateY(-2px);box-shadow:0 8px 25px -5px rgba(0,0,0,.1)}
-    .chart-bar{animation:barGrow .8s ease-out both}
-    .loading-shimmer{background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);background-size:200% 100%;animation:shimmer 1.5s infinite}@keyframes shimmer{from{background-position:-200% 0}to{background-position:200% 0}}
-    @media (prefers-reduced-motion:reduce){.animate-fade-up,.chart-bar{animation:none}}
-  </style>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
   <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="text-xl font-extrabold tracking-tight text-slate-900">Space<span class="text-primary-600">Reserve</span></a>
+        <a href="../index.html" class="text-xl font-extrabold tracking-tight text-slate-900">Space<span class="text-primary-600">Reserve</span></a>
         <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="index.html" class="text-slate-500 hover:text-slate-800 transition">Inicio</a>
+          <a href="../index.html" class="text-slate-500 hover:text-slate-800 transition">Inicio</a>
           <a href="servicios.html" class="text-slate-500 hover:text-slate-800 transition">Habitaciones</a>
           <a href="reserva.html" class="text-slate-500 hover:text-slate-800 transition">Reservar</a>
           <a href="admin.html" class="text-slate-500 hover:text-slate-800 transition">Admin</a>
@@ -47,7 +37,7 @@
         </button>
       </div>
       <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 text-sm font-medium">
-        <a href="index.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Inicio</a>
+        <a href="../index.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Inicio</a>
         <a href="servicios.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Habitaciones</a>
         <a href="reserva.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Reservar</a>
         <a href="admin.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Admin</a>
@@ -82,7 +72,7 @@
         </form>
         <p class="text-center text-xs text-slate-400 mt-5">Al registrarte, aceptas nuestros <a href="#" class="text-primary-600 hover:underline">Términos y condiciones</a></p>
       </div>
-      <p class="text-center text-sm text-slate-400 mt-6"><a href="index.html" class="text-primary-600 hover:text-primary-700 font-medium">&larr; Volver al inicio</a></p>
+      <p class="text-center text-sm text-slate-400 mt-6"><a href="../index.html" class="text-primary-600 hover:text-primary-700 font-medium">&larr; Volver al inicio</a></p>
     </div>
   </main>
 
@@ -90,15 +80,6 @@
     <div class="max-w-6xl mx-auto px-4 text-center text-sm text-slate-400">&copy; 2026 SpaceReserve. Todos los derechos reservados.</div>
   </footer>
 
-  <script>
-    function showTab(tab) {
-      document.getElementById('form-login').classList.toggle('hidden', tab !== 'login');
-      document.getElementById('form-register').classList.toggle('hidden', tab !== 'register');
-      document.querySelectorAll('.flex.bg-slate-100.rounded-xl.p-1 button').forEach((btn, i) => {
-        const active = (tab === 'login' && i === 0) || (tab === 'register' && i === 1);
-        btn.className = active ? 'flex-1 py-2.5 rounded-lg bg-white text-slate-900 shadow-sm' : 'flex-1 py-2.5 rounded-lg text-slate-500';
-      });
-    }
-  </script>
+  <script src="../js/login.js"></script>
 </body>
 </html>

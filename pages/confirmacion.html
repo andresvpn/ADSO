@@ -17,52 +17,33 @@
       }
     }
   </script>
-  <style>
-    @keyframes checkIn { 0% { transform: scale(0) rotate(-45deg); opacity: 0; } 60% { transform: scale(1.2) rotate(0); } 100% { transform: scale(1) rotate(0); opacity: 1; } }
-    @keyframes fadeUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
-    .anim-check { animation: checkIn 0.6s ease-out forwards; }
-    .anim-fade { animation: fadeUp 0.5s ease-out forwards; opacity: 0; }
-    .anim-fade-1 { animation-delay: 0.2s; }
-    .anim-fade-2 { animation-delay: 0.4s; }
-    .anim-fade-3 { animation-delay: 0.6s; }
-  </style>
-  <style>
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes barGrow{from{height:0}}
-    .animate-fade-up{animation:fadeInUp .6s ease-out both}
-    .stagger-1{animation-delay:.1s}.stagger-2{animation-delay:.2s}.stagger-3{animation-delay:.3s}.stagger-4{animation-delay:.4s}
-    .hover-lift{transition:transform .2s ease,box-shadow .2s ease}
-    .hover-lift:hover{transform:translateY(-2px);box-shadow:0 8px 25px -5px rgba(0,0,0,.1)}
-    .chart-bar{animation:barGrow .8s ease-out both}
-    .loading-shimmer{background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);background-size:200% 100%;animation:shimmer 1.5s infinite}@keyframes shimmer{from{background-position:-200% 0}to{background-position:200% 0}}
-    @media (prefers-reduced-motion:reduce){.animate-fade-up,.chart-bar{animation:none}}
-  </style>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
   <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="text-xl font-extrabold tracking-tight text-slate-900">Space<span class="text-primary-600">Reserve</span></a>
+        <a href="../index.html" class="text-xl font-extrabold tracking-tight text-slate-900">Space<span class="text-primary-600">Reserve</span></a>
         <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="index.html" class="text-slate-500 hover:text-slate-800 transition">Inicio</a>
+          <a href="../index.html" class="text-slate-500 hover:text-slate-800 transition">Inicio</a>
           <a href="servicios.html" class="text-slate-500 hover:text-slate-800 transition">Servicios</a>
           <a href="reserva.html" class="text-slate-500 hover:text-slate-800 transition">Reservar</a>
           <a href="admin.html" class="text-slate-500 hover:text-slate-800 transition">Admin</a>
           <a href="perfil.html" class="text-slate-500 hover:text-slate-800 transition">Mi Perfil</a>
-          <a href="index.html" class="ml-4 bg-slate-100 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-200 transition text-sm font-semibold">Cerrar sesión</a>
+          <a href="../index.html" class="ml-4 bg-slate-100 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-200 transition text-sm font-semibold">Cerrar sesión</a>
         </div>
         <button class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
       <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 text-sm font-medium">
-        <a href="index.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Inicio</a>
+        <a href="../index.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Inicio</a>
         <a href="servicios.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Servicios</a>
         <a href="reserva.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Reservar</a>
         <a href="admin.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Admin</a>
         <a href="perfil.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Mi Perfil</a>
-        <a href="index.html" class="block px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-center font-semibold">Cerrar sesión</a>
+        <a href="../index.html" class="block px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-center font-semibold">Cerrar sesión</a>
       </div>
     </div>
   </nav>
@@ -88,7 +69,7 @@
         <div class="mt-8 space-y-3 anim-fade anim-fade-3">
           <button onclick="window.print()" class="w-full bg-primary-600 text-white py-2.5 rounded-xl font-semibold hover:bg-primary-700 transition shadow-md shadow-primary-200">Descargar Comprobante</button>
           <button onclick="navigator.clipboard.writeText(window.location.href);alert('Enlace copiado al portapapeles')" class="w-full bg-white text-slate-600 py-2.5 rounded-xl font-semibold border border-slate-200 hover:border-slate-300 transition">Compartir reserva</button>
-          <div class="flex gap-3"><a href="perfil.html" class="flex-1 text-center bg-slate-100 text-slate-700 py-2.5 rounded-xl font-semibold hover:bg-slate-200 transition text-sm">Mis reservas</a><a href="index.html" class="flex-1 text-center text-primary-600 hover:text-primary-700 py-2.5 rounded-xl font-semibold text-sm border border-slate-200 hover:border-slate-300 transition">Volver al inicio</a></div>
+          <div class="flex gap-3"><a href="perfil.html" class="flex-1 text-center bg-slate-100 text-slate-700 py-2.5 rounded-xl font-semibold hover:bg-slate-200 transition text-sm">Mis reservas</a><a href="../index.html" class="flex-1 text-center text-primary-600 hover:text-primary-700 py-2.5 rounded-xl font-semibold text-sm border border-slate-200 hover:border-slate-300 transition">Volver al inicio</a></div>
         </div>
       </div>
     </div>
@@ -98,7 +79,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div><span class="text-xl font-extrabold tracking-tight text-white">Space<span class="text-primary-400">Reserve</span></span><p class="text-sm mt-3 leading-relaxed">Plataforma inteligente de reservas para espacios y servicios.</p></div>
-        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Navegación</h4><ul class="space-y-2 text-sm"><li><a href="index.html" class="hover:text-white transition">Inicio</a></li><li><a href="servicios.html" class="hover:text-white transition">Servicios</a></li><li><a href="reserva.html" class="hover:text-white transition">Reservar</a></li><li><a href="admin.html" class="hover:text-white transition">Admin</a></li></ul></div>
+        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Navegación</h4><ul class="space-y-2 text-sm"><li><a href="../index.html" class="hover:text-white transition">Inicio</a></li><li><a href="servicios.html" class="hover:text-white transition">Servicios</a></li><li><a href="reserva.html" class="hover:text-white transition">Reservar</a></li><li><a href="admin.html" class="hover:text-white transition">Admin</a></li></ul></div>
         <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Soporte</h4><ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white transition">Centro de ayuda</a></li><li><a href="#" class="hover:text-white transition">Términos y condiciones</a></li><li><a href="#" class="hover:text-white transition">Política de privacidad</a></li></ul></div>
         <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Contacto</h4><ul class="space-y-2 text-sm"><li>contacto@spacereserve.com</li><li>+57 302 490 6533</li><li>Bogotá, Colombia</li></ul></div>
       </div>
@@ -106,28 +87,6 @@
     </div>
   </footer>
 
-  <script>
-    (function() {
-      const params = new URLSearchParams(window.location.search);
-      const ref = params.get('ref');
-      const stored = localStorage.getItem('spacereserve_booking');
-
-      if (ref) document.getElementById('ref-number').textContent = ref;
-
-      if (stored) {
-        try {
-          const d = JSON.parse(stored);
-          if (d.ref === ref || !ref) {
-            document.getElementById('d-nombre').textContent = d.nombre || '—';
-            document.getElementById('d-servicio').textContent = d.servicio || '—';
-            document.getElementById('d-personas').textContent = d.personas || '—';
-            document.getElementById('d-fechas').textContent = d.fechas || '—';
-            document.getElementById('d-total').textContent = d.total || '—';
-            if (!ref) document.getElementById('ref-number').textContent = d.ref || 'SR-000';
-          }
-        } catch(e) {}
-      }
-    })();
-  </script>
+  <script src="../js/confirmacion.js"></script>
 </body>
 </html>
