@@ -6,17 +6,28 @@
   <title>Mi Perfil — SpaceReserve</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          fontFamily: { sans: ['Nunito', 'sans-serif'] },
           colors: { primary: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' } }
         }
       }
     }
   </script>
+  <style>
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes barGrow{from{height:0}}
+    .animate-fade-up{animation:fadeInUp .6s ease-out both}
+    .stagger-1{animation-delay:.1s}.stagger-2{animation-delay:.2s}.stagger-3{animation-delay:.3s}.stagger-4{animation-delay:.4s}
+    .hover-lift{transition:transform .2s ease,box-shadow .2s ease}
+    .hover-lift:hover{transform:translateY(-2px);box-shadow:0 8px 25px -5px rgba(0,0,0,.1)}
+    .chart-bar{animation:barGrow .8s ease-out both}
+    .loading-shimmer{background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);background-size:200% 100%;animation:shimmer 1.5s infinite}@keyframes shimmer{from{background-position:-200% 0}to{background-position:200% 0}}
+    @media (prefers-reduced-motion:reduce){.animate-fade-up,.chart-bar{animation:none}}
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
@@ -50,7 +61,7 @@
   <main class="flex-1 py-10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- PROFILE HEADER -->
-      <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8 mb-8">
+      <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8 mb-8 animate-fade-up">
         <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
           <div class="w-20 h-20 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center text-3xl font-bold shrink-0">CM</div>
           <div class="flex-1 text-center sm:text-left">
@@ -122,9 +133,9 @@
         <div><span class="text-xl font-extrabold tracking-tight text-white">Space<span class="text-primary-400">Reserve</span></span><p class="text-sm mt-3 leading-relaxed">Plataforma inteligente de reservas para espacios y servicios.</p></div>
         <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Navegación</h4><ul class="space-y-2 text-sm"><li><a href="index.html" class="hover:text-white transition">Inicio</a></li><li><a href="servicios.html" class="hover:text-white transition">Servicios</a></li><li><a href="reserva.html" class="hover:text-white transition">Reservar</a></li><li><a href="admin.html" class="hover:text-white transition">Admin</a></li></ul></div>
         <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Soporte</h4><ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white transition">Centro de ayuda</a></li><li><a href="#" class="hover:text-white transition">Términos y condiciones</a></li><li><a href="#" class="hover:text-white transition">Política de privacidad</a></li></ul></div>
-        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Contacto</h4><ul class="space-y-2 text-sm"><li>contacto@spacereserve.com</li><li>+57 300 123 4567</li><li>Bogotá, Colombia</li></ul></div>
+        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Contacto</h4><ul class="space-y-2 text-sm"><li>contacto@spacereserve.com</li><li>+57 302 490 6533</li><li>Bogotá, Colombia</li></ul></div>
       </div>
-      <div class="border-t border-slate-800 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><span>&copy; 2026 SpaceReserve. Todos los derechos reservados.</span><div class="flex gap-6"><a href="#" class="hover:text-white transition">LinkedIn</a><a href="#" class="hover:text-white transition">Twitter</a><a href="#" class="hover:text-white transition">Instagram</a></div></div>
+      <div class="border-t border-slate-800 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><span>&copy; 2026 SpaceReserve. Todos los derechos reservados.</span><div class="flex gap-6"><a href="https://instagram.com/05_carvajal" target="_blank" class="hover:text-white transition">Instagram @05_carvajal</a></div></div>
     </div>
   </footer>
 

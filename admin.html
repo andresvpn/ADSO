@@ -6,17 +6,28 @@
   <title>Panel Admin — SpaceReserve</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          fontFamily: { sans: ['Nunito', 'sans-serif'] },
           colors: { primary: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' } }
         }
       }
     }
   </script>
+  <style>
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes barGrow{from{height:0}}
+    .animate-fade-up{animation:fadeInUp .6s ease-out both}
+    .stagger-1{animation-delay:.1s}.stagger-2{animation-delay:.2s}.stagger-3{animation-delay:.3s}.stagger-4{animation-delay:.4s}
+    .hover-lift{transition:transform .2s ease,box-shadow .2s ease}
+    .hover-lift:hover{transform:translateY(-2px);box-shadow:0 8px 25px -5px rgba(0,0,0,.1)}
+    .chart-bar{animation:barGrow .8s ease-out both}
+    .loading-shimmer{background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);background-size:200% 100%;animation:shimmer 1.5s infinite}@keyframes shimmer{from{background-position:-200% 0}to{background-position:200% 0}}
+    @media (prefers-reduced-motion:reduce){.animate-fade-up,.chart-bar{animation:none}}
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
@@ -54,12 +65,50 @@
         <a href="reserva.html" class="bg-primary-600 text-white px-5 py-2.5 rounded-xl font-semibold hover:bg-primary-700 transition shadow-sm text-sm text-center">+ Nueva reserva</a>
       </div>
 
-      <!-- STATS -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10">
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Total</p><span class="w-8 h-8 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center text-xs font-bold">5</span></div><p class="text-3xl font-bold text-slate-900 mt-2">5</p><p class="text-xs text-slate-400 mt-1"><span class="text-emerald-500 font-medium">+2</span> esta semana</p></div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Activas</p><span class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center text-xs font-bold">3</span></div><p class="text-3xl font-bold text-emerald-600 mt-2">3</p><p class="text-xs text-emerald-500 mt-1">100% pagadas</p></div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Pendientes</p><span class="w-8 h-8 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center text-xs font-bold">1</span></div><p class="text-3xl font-bold text-amber-500 mt-2">1</p><p class="text-xs text-amber-400 mt-1">Pendiente de pago</p></div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Canceladas</p><span class="w-8 h-8 bg-red-100 text-red-600 rounded-lg flex items-center justify-center text-xs font-bold">1</span></div><p class="text-3xl font-bold text-red-500 mt-2">1</p><p class="text-xs text-red-400 mt-1">Sin reembolso</p></div>
+      <!-- STATS ROW -->
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 mb-8">
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm animate-fade-up stagger-1 hover-lift"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Ingresos</p><span class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center text-xs font-bold">$</span></div><p class="text-3xl font-bold text-slate-900 mt-2">$2.4M</p><p class="text-xs text-slate-400 mt-1"><span class="text-emerald-500 font-medium">+18%</span> vs mes anterior</p><div class="flex items-end gap-1 mt-3 h-8"><div class="chart-bar bg-primary-300 rounded-t w-full" style="height:60%"></div><div class="chart-bar bg-primary-400 rounded-t w-full" style="height:85%"></div><div class="chart-bar bg-primary-500 rounded-t w-full" style="height:45%"></div><div class="chart-bar bg-primary-400 rounded-t w-full" style="height:70%"></div><div class="chart-bar bg-primary-500 rounded-t w-full" style="height:90%"></div><div class="chart-bar bg-primary-300 rounded-t w-full" style="height:55%"></div><div class="chart-bar bg-primary-400 rounded-t w-full" style="height:75%"></div></div></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm animate-fade-up stagger-2 hover-lift"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Total</p><span class="w-8 h-8 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center text-xs font-bold">5</span></div><p class="text-3xl font-bold text-slate-900 mt-2">5</p><p class="text-xs text-slate-400 mt-1"><span class="text-emerald-500 font-medium">+2</span> esta semana</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm animate-fade-up stagger-3 hover-lift"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Activas</p><span class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center text-xs font-bold">3</span></div><p class="text-3xl font-bold text-emerald-600 mt-2">3</p><p class="text-xs text-emerald-500 mt-1">100% pagadas</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm animate-fade-up stagger-4 hover-lift"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Pendientes</p><span class="w-8 h-8 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center text-xs font-bold">1</span></div><p class="text-3xl font-bold text-amber-500 mt-2">1</p><p class="text-xs text-amber-400 mt-1">Pendiente de pago</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm animate-fade-up stagger-5 hover-lift"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Canceladas</p><span class="w-8 h-8 bg-red-100 text-red-600 rounded-lg flex items-center justify-center text-xs font-bold">1</span></div><p class="text-3xl font-bold text-red-500 mt-2">1</p><p class="text-xs text-red-400 mt-1">Sin reembolso</p></div>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="flex flex-wrap gap-3 mb-8">
+        <button class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-semibold hover:border-primary-300 hover:text-primary-600 transition shadow-sm"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Exportar CSV</button>
+        <button class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-semibold hover:border-primary-300 hover:text-primary-600 transition shadow-sm"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>Imprimir reporte</button>
+        <button class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-semibold hover:border-primary-300 hover:text-primary-600 transition shadow-sm"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>Notificar clientes</button>
+        <button class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-semibold hover:border-primary-300 hover:text-primary-600 transition shadow-sm"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>Actualizar datos</button>
+      </div>
+
+      <!-- TWO COLUMN: ACTIVITY + CHART -->
+      <div class="grid lg:grid-cols-3 gap-6 mb-8">
+        <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+          <h3 class="font-bold text-slate-900 mb-4">Actividad Reciente</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3 text-sm"><div class="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0"></div><div class="flex-1 min-w-0"><p class="text-slate-900 font-medium">Carlos Martínez confirmó SR-001</p><p class="text-xs text-slate-400">Habitación Doble · 01 Jun → 05 Jun · $900.000</p><p class="text-xs text-slate-300 mt-0.5">Hace 2 horas</p></div></div>
+            <div class="flex items-start gap-3 text-sm"><div class="w-2 h-2 rounded-full bg-amber-500 mt-2 shrink-0"></div><div class="flex-1 min-w-0"><p class="text-slate-900 font-medium">Nueva reserva de Laura Gómez</p><p class="text-xs text-slate-400">Mesa para 4 personas · 02 Jun · $150.000</p><p class="text-xs text-slate-300 mt-0.5">Hace 5 horas</p></div></div>
+            <div class="flex items-start gap-3 text-sm"><div class="w-2 h-2 rounded-full bg-red-500 mt-2 shrink-0"></div><div class="flex-1 min-w-0"><p class="text-slate-900 font-medium">Pedro Ruiz canceló SR-005</p><p class="text-xs text-slate-400">Habitación Sencilla · 10 Jun → 12 Jun</p><p class="text-xs text-slate-300 mt-0.5">Hace 1 día</p></div></div>
+            <div class="flex items-start gap-3 text-sm"><div class="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0"></div><div class="flex-1 min-w-0"><p class="text-slate-900 font-medium">Andrés Torres confirmó SR-003</p><p class="text-xs text-slate-400">Suite Ejecutiva · 03 Jun → 07 Jun · $1'400.000</p><p class="text-xs text-slate-300 mt-0.5">Hace 2 días</p></div></div>
+            <div class="flex items-start gap-3 text-sm"><div class="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0"></div><div class="flex-1 min-w-0"><p class="text-slate-900 font-medium">María Vargas reservó Consulta Odontológica</p><p class="text-xs text-slate-400">04 Jun · $60.000</p><p class="text-xs text-slate-300 mt-0.5">Hace 3 días</p></div></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+          <h3 class="font-bold text-slate-900 mb-4">Reservas por Mes</h3>
+          <div class="flex items-end justify-between gap-2 h-40">
+            <div class="flex flex-col items-center gap-1 flex-1"><div class="chart-bar w-full bg-primary-400 rounded-t" style="height:40%;animation-delay:.1s"></div><span class="text-[10px] text-slate-400 font-medium">Ene</span></div>
+            <div class="flex flex-col items-center gap-1 flex-1"><div class="chart-bar w-full bg-primary-400 rounded-t" style="height:55%;animation-delay:.2s"></div><span class="text-[10px] text-slate-400 font-medium">Feb</span></div>
+            <div class="flex flex-col items-center gap-1 flex-1"><div class="chart-bar w-full bg-primary-400 rounded-t" style="height:35%;animation-delay:.3s"></div><span class="text-[10px] text-slate-400 font-medium">Mar</span></div>
+            <div class="flex flex-col items-center gap-1 flex-1"><div class="chart-bar w-full bg-primary-400 rounded-t" style="height:70%;animation-delay:.4s"></div><span class="text-[10px] text-slate-400 font-medium">Abr</span></div>
+            <div class="flex flex-col items-center gap-1 flex-1"><div class="chart-bar w-full bg-primary-500 rounded-t" style="height:85%;animation-delay:.5s"></div><span class="text-[10px] text-slate-400 font-medium">May</span></div>
+            <div class="flex flex-col items-center gap-1 flex-1"><div class="chart-bar w-full bg-primary-400 rounded-t" style="height:45%;animation-delay:.6s"></div><span class="text-[10px] text-slate-400 font-medium">Jun</span></div>
+          </div>
+          <div class="flex justify-between text-xs text-slate-400 mt-4 pt-4 border-t border-slate-100">
+            <span><span class="font-semibold text-slate-700">Promedio:</span> 4.2 reservas/mes</span>
+            <span><span class="font-semibold text-emerald-600">+8%</span> vs trimestre ant.</span>
+          </div>
+        </div>
       </div>
 
       <!-- SEARCH & FILTER -->
@@ -115,9 +164,9 @@
         <div><span class="text-xl font-extrabold tracking-tight text-white">Space<span class="text-primary-400">Reserve</span></span><p class="text-sm mt-3 leading-relaxed">Plataforma inteligente de reservas para espacios y servicios.</p></div>
         <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Navegación</h4><ul class="space-y-2 text-sm"><li><a href="index.html" class="hover:text-white transition">Inicio</a></li><li><a href="servicios.html" class="hover:text-white transition">Servicios</a></li><li><a href="reserva.html" class="hover:text-white transition">Reservar</a></li><li><a href="admin.html" class="hover:text-white transition">Admin</a></li></ul></div>
         <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Soporte</h4><ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white transition">Centro de ayuda</a></li><li><a href="#" class="hover:text-white transition">Términos y condiciones</a></li><li><a href="#" class="hover:text-white transition">Política de privacidad</a></li></ul></div>
-        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Contacto</h4><ul class="space-y-2 text-sm"><li>contacto@spacereserve.com</li><li>+57 300 123 4567</li><li>Bogotá, Colombia</li></ul></div>
+        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Contacto</h4><ul class="space-y-2 text-sm"><li>contacto@spacereserve.com</li><li>+57 302 490 6533</li><li>Bogotá, Colombia</li></ul></div>
       </div>
-      <div class="border-t border-slate-800 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><span>&copy; 2026 SpaceReserve. Todos los derechos reservados.</span><div class="flex gap-6"><a href="#" class="hover:text-white transition">LinkedIn</a><a href="#" class="hover:text-white transition">Twitter</a><a href="#" class="hover:text-white transition">Instagram</a></div></div>
+      <div class="border-t border-slate-800 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><span>&copy; 2026 SpaceReserve. Todos los derechos reservados.</span><div class="flex gap-6"><a href="https://instagram.com/05_carvajal" target="_blank" class="hover:text-white transition">Instagram @05_carvajal</a></div></div>
     </div>
   </footer>
 
