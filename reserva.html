@@ -20,15 +20,16 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
-  <!-- NAV -->
   <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <a href="index.html" class="text-xl font-extrabold tracking-tight text-slate-900">Space<span class="text-primary-600">Reserve</span></a>
         <div class="hidden md:flex items-center gap-8 text-sm font-medium">
           <a href="index.html" class="text-slate-500 hover:text-slate-800 transition">Inicio</a>
+          <a href="servicios.html" class="text-slate-500 hover:text-slate-800 transition">Servicios</a>
           <a href="reserva.html" class="text-primary-600 border-b-2 border-primary-600 pb-1">Reservar</a>
           <a href="admin.html" class="text-slate-500 hover:text-slate-800 transition">Admin</a>
+          <a href="perfil.html" class="text-slate-500 hover:text-slate-800 transition">Mi Perfil</a>
           <a href="index.html" class="ml-4 bg-slate-100 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-200 transition text-sm font-semibold">Cerrar sesión</a>
         </div>
         <button class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" onclick="this.nextElementSibling.classList.toggle('hidden')">
@@ -37,52 +38,202 @@
       </div>
       <div class="hidden md:hidden pb-4 space-y-2 text-sm font-medium">
         <a href="index.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Inicio</a>
+        <a href="servicios.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Servicios</a>
         <a href="reserva.html" class="block px-3 py-2 rounded-lg bg-primary-50 text-primary-700">Reservar</a>
         <a href="admin.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Admin</a>
+        <a href="perfil.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Mi Perfil</a>
         <a href="index.html" class="block px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-center font-semibold">Cerrar sesión</a>
       </div>
     </div>
   </nav>
 
-  <!-- FORM -->
   <main class="flex-1 py-10">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
         <h1 class="text-3xl font-bold text-slate-900">Nueva Reservación</h1>
-        <p class="text-slate-500 mt-1">Completa el formulario para asegurar tu espacio o servicio.</p>
+        <p class="text-slate-500 mt-1">Completa los pasos para asegurar tu espacio o servicio.</p>
       </div>
+
+      <!-- PROGRESS BAR -->
+      <div class="mb-10">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-primary-600" id="step-label">Paso 1 de 4</span>
+          <span class="text-xs text-slate-400" id="step-pct">25%</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
+          <div class="bg-primary-600 h-2.5 rounded-full transition-all duration-500" id="progress-bar" style="width:25%"></div>
+        </div>
+        <div class="flex justify-between mt-3 text-xs text-slate-400">
+          <span class="font-medium text-primary-600" id="s1">Servicio</span>
+          <span id="s2">Datos</span>
+          <span id="s3">Fechas</span>
+          <span id="s4">Revisar</span>
+        </div>
+      </div>
+
       <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8">
-        <form class="space-y-6">
+        <!-- STEP 1: SERVICIO -->
+        <div id="step-1" class="space-y-5">
+          <h2 class="text-xl font-bold text-slate-900">Selecciona un servicio</h2>
+          <p class="text-sm text-slate-500">Elige el tipo de servicio que deseas reservar.</p>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="cursor-pointer border-2 rounded-xl p-4 flex items-start gap-4 transition has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50 border-slate-200 hover:border-slate-300" onclick="document.querySelectorAll('.service-option').forEach(e=>e.classList.remove('border-primary-500','bg-primary-50'));this.classList.add('border-primary-500','bg-primary-50');this.querySelector('input').checked=true;selectedService=this.querySelector('input').value">
+              <input type="radio" name="servicio" value="Habitación Doble" class="mt-1 accent-primary-600 service-option" checked />
+              <div><p class="font-semibold text-slate-900">Habitación Doble</p><p class="text-xs text-slate-500 mt-0.5">$180/noche — 2 personas</p></div>
+            </label>
+            <label class="cursor-pointer border-2 rounded-xl p-4 flex items-start gap-4 transition has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50 border-slate-200 hover:border-slate-300" onclick="document.querySelectorAll('.service-option').forEach(e=>e.classList.remove('border-primary-500','bg-primary-50'));this.classList.add('border-primary-500','bg-primary-50');this.querySelector('input').checked=true;selectedService=this.querySelector('input').value">
+              <input type="radio" name="servicio" value="Suite Ejecutiva" class="mt-1 accent-primary-600 service-option" />
+              <div><p class="font-semibold text-slate-900">Suite Ejecutiva</p><p class="text-xs text-slate-500 mt-0.5">$350/noche — 2 personas</p></div>
+            </label>
+            <label class="cursor-pointer border-2 rounded-xl p-4 flex items-start gap-4 transition has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50 border-slate-200 hover:border-slate-300" onclick="document.querySelectorAll('.service-option').forEach(e=>e.classList.remove('border-primary-500','bg-primary-50'));this.classList.add('border-primary-500','bg-primary-50');this.querySelector('input').checked=true;selectedService=this.querySelector('input').value">
+              <input type="radio" name="servicio" value="Mesa para 4 personas" class="mt-1 accent-primary-600 service-option" />
+              <div><p class="font-semibold text-slate-900">Mesa para 4 personas</p><p class="text-xs text-slate-500 mt-0.5">$150 — 4 personas</p></div>
+            </label>
+            <label class="cursor-pointer border-2 rounded-xl p-4 flex items-start gap-4 transition has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50 border-slate-200 hover:border-slate-300" onclick="document.querySelectorAll('.service-option').forEach(e=>e.classList.remove('border-primary-500','bg-primary-50'));this.classList.add('border-primary-500','bg-primary-50');this.querySelector('input').checked=true;selectedService=this.querySelector('input').value">
+              <input type="radio" name="servicio" value="Consulta Odontológica" class="mt-1 accent-primary-600 service-option" />
+              <div><p class="font-semibold text-slate-900">Consulta Odontológica</p><p class="text-xs text-slate-500 mt-0.5">$60 — 1 persona</p></div>
+            </label>
+          </div>
+          <div class="flex justify-end pt-4"><button onclick="nextStep()" class="bg-primary-600 text-white px-8 py-2.5 rounded-xl font-semibold hover:bg-primary-700 transition shadow-sm">Continuar</button></div>
+        </div>
+
+        <!-- STEP 2: DATOS PERSONALES -->
+        <div id="step-2" class="space-y-5 hidden">
+          <h2 class="text-xl font-bold text-slate-900">Tus datos</h2>
+          <p class="text-sm text-slate-500">Completa tu información personal.</p>
           <div class="grid sm:grid-cols-2 gap-5">
-            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Nombre completo</label><input type="text" value="Carlos Martínez" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
-            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Correo electrónico</label><input type="email" value="carlos.martinez@mail.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
-            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Tipo de servicio</label><select class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition"><option>Habitación Doble</option><option>Habitación Sencilla</option><option>Suite Ejecutiva</option><option>Mesa para 2 personas</option><option>Mesa para 4 personas</option><option>Mesa para 6 personas</option><option>Consulta Odontológica</option><option>Espacio de Coworking</option></select></div>
-            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Número de personas</label><input type="number" value="2" min="1" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
-            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Fecha de inicio</label><input type="date" value="2026-06-10" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
-            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Fecha de fin</label><input type="date" value="2026-06-15" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
+            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Nombre completo</label><input type="text" id="f-name" value="Carlos Martínez" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
+            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Correo electrónico</label><input type="email" id="f-email" value="carlos@mail.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
+            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Teléfono</label><input type="tel" id="f-phone" value="+57 300 111 2233" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
+            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Número de personas</label><input type="number" id="f-persons" value="2" min="1" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
           </div>
-          <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Observaciones <span class="text-slate-400 normal-case font-normal">(opcional)</span></label><textarea rows="2" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition resize-none">Habitación con vista al mar, si es posible.</textarea></div>
-          <div class="bg-sky-50 border border-sky-200 rounded-xl px-5 py-4 flex items-center gap-3 text-sm">
-            <svg class="w-5 h-5 text-sky-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-            <span class="text-sky-800">Pago seguro procesado mediante <strong class="text-sky-900">Wompi</strong>. Tus datos están protegidos.</span>
+          <div class="flex justify-between pt-4"><button onclick="prevStep()" class="bg-white text-slate-600 px-6 py-2.5 rounded-xl font-semibold border border-slate-200 hover:border-slate-300 transition">Anterior</button><button onclick="nextStep()" class="bg-primary-600 text-white px-8 py-2.5 rounded-xl font-semibold hover:bg-primary-700 transition shadow-sm">Continuar</button></div>
+        </div>
+
+        <!-- STEP 3: FECHAS -->
+        <div id="step-3" class="space-y-5 hidden">
+          <h2 class="text-xl font-bold text-slate-900">Fechas y preferencias</h2>
+          <p class="text-sm text-slate-500">Indica las fechas y cualquier observación.</p>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Fecha de inicio</label><input type="date" id="f-start" value="2026-06-10" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
+            <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Fecha de fin</label><input type="date" id="f-end" value="2026-06-15" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
           </div>
-          <div class="flex flex-col sm:flex-row gap-3 pt-2">
-            <button type="submit" class="flex-1 bg-primary-600 text-white py-2.5 rounded-xl font-semibold hover:bg-primary-700 transition shadow-md shadow-primary-200">Confirmar Reservación</button>
-            <button type="reset" class="flex-1 bg-white text-slate-600 py-2.5 rounded-xl font-semibold border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition">Cancelar</button>
+          <div><label class="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Observaciones <span class="text-slate-400 normal-case font-normal">(opcional)</span></label><textarea id="f-notes" rows="3" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition resize-none">Habitación con vista al mar, si es posible.</textarea></div>
+          <div class="flex justify-between pt-4"><button onclick="prevStep()" class="bg-white text-slate-600 px-6 py-2.5 rounded-xl font-semibold border border-slate-200 hover:border-slate-300 transition">Anterior</button><button onclick="nextStep()" class="bg-primary-600 text-white px-8 py-2.5 rounded-xl font-semibold hover:bg-primary-700 transition shadow-sm">Continuar</button></div>
+        </div>
+
+        <!-- STEP 4: REVISAR Y PAGAR -->
+        <div id="step-4" class="space-y-5 hidden">
+          <h2 class="text-xl font-bold text-slate-900">Revisa tu reserva</h2>
+          <p class="text-sm text-slate-500">Verifica que todos los datos sean correctos antes de pagar.</p>
+          <div class="bg-slate-50 rounded-xl p-5 space-y-3 border border-slate-100">
+            <div class="flex justify-between text-sm"><span class="text-slate-500">Servicio</span><span class="font-semibold text-slate-900" id="r-servicio">Habitación Doble</span></div>
+            <div class="flex justify-between text-sm"><span class="text-slate-500">Cliente</span><span class="font-semibold text-slate-900" id="r-nombre">Carlos Martínez</span></div>
+            <div class="flex justify-between text-sm"><span class="text-slate-500">Correo</span><span class="font-semibold text-slate-900" id="r-email">carlos@mail.com</span></div>
+            <div class="flex justify-between text-sm"><span class="text-slate-500">Personas</span><span class="font-semibold text-slate-900" id="r-personas">2</span></div>
+            <div class="flex justify-between text-sm"><span class="text-slate-500">Fechas</span><span class="font-semibold text-slate-900" id="r-fechas">10 Jun → 15 Jun 2026</span></div>
+            <div class="flex justify-between text-sm border-t border-slate-200 pt-3"><span class="text-slate-500">Total estimado</span><span class="font-bold text-lg text-primary-600" id="r-total">$900</span></div>
           </div>
-        </form>
+          <div class="bg-sky-50 border border-sky-200 rounded-xl px-5 py-4 flex items-center gap-3 text-sm"><svg class="w-5 h-5 text-sky-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg><span class="text-sky-800">Pago seguro procesado mediante <strong class="text-sky-900">Wompi</strong>. Tus datos están protegidos.</span></div>
+          <div class="flex justify-between pt-4"><button onclick="prevStep()" class="bg-white text-slate-600 px-6 py-2.5 rounded-xl font-semibold border border-slate-200 hover:border-slate-300 transition">Anterior</button><button onclick="confirmBooking()" class="bg-emerald-600 text-white px-8 py-2.5 rounded-xl font-semibold hover:bg-emerald-700 transition shadow-md shadow-emerald-200">Confirmar y Pagar</button></div>
+        </div>
       </div>
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-white border-t border-slate-200 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-      <span class="font-semibold text-slate-800">Space<span class="text-primary-600">Reserve</span></span>
-      <div class="flex gap-6"><a href="index.html" class="hover:text-slate-600 transition">Inicio</a><a href="reserva.html" class="hover:text-slate-600 transition">Reservar</a><a href="admin.html" class="hover:text-slate-600 transition">Admin</a></div>
-      <span>&copy; 2026 SpaceReserve. Todos los derechos reservados.</span>
+  <footer class="bg-slate-900 text-slate-400 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div><span class="text-xl font-extrabold tracking-tight text-white">Space<span class="text-primary-400">Reserve</span></span><p class="text-sm mt-3 leading-relaxed">Plataforma inteligente de reservas para espacios y servicios.</p></div>
+        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Navegación</h4><ul class="space-y-2 text-sm"><li><a href="index.html" class="hover:text-white transition">Inicio</a></li><li><a href="servicios.html" class="hover:text-white transition">Servicios</a></li><li><a href="reserva.html" class="hover:text-white transition">Reservar</a></li><li><a href="admin.html" class="hover:text-white transition">Admin</a></li></ul></div>
+        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Soporte</h4><ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white transition">Centro de ayuda</a></li><li><a href="#" class="hover:text-white transition">Términos y condiciones</a></li><li><a href="#" class="hover:text-white transition">Política de privacidad</a></li></ul></div>
+        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Contacto</h4><ul class="space-y-2 text-sm"><li>contacto@spacereserve.com</li><li>+57 300 123 4567</li><li>Bogotá, Colombia</li></ul></div>
+      </div>
+      <div class="border-t border-slate-800 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><span>&copy; 2026 SpaceReserve. Todos los derechos reservados.</span><div class="flex gap-6"><a href="#" class="hover:text-white transition">LinkedIn</a><a href="#" class="hover:text-white transition">Twitter</a><a href="#" class="hover:text-white transition">Instagram</a></div></div>
     </div>
   </footer>
 
+  <script>
+    let currentStep = 1;
+    const totalSteps = 4;
+    let selectedService = 'Habitación Doble';
+
+    function goToStep(step) {
+      for (let i = 1; i <= totalSteps; i++) {
+        document.getElementById(`step-${i}`).classList.add('hidden');
+      }
+      document.getElementById(`step-${step}`).classList.remove('hidden');
+      currentStep = step;
+      const pct = Math.round((step / totalSteps) * 100);
+      document.getElementById('progress-bar').style.width = pct + '%';
+      document.getElementById('step-label').textContent = `Paso ${step} de ${totalSteps}`;
+      document.getElementById('step-pct').textContent = pct + '%';
+      for (let i = 1; i <= totalSteps; i++) {
+        const el = document.getElementById(`s${i}`);
+        el.className = i === step ? 'font-medium text-primary-600' : i < step ? 'font-medium text-emerald-600' : '';
+      }
+    }
+
+    function nextStep() {
+      if (currentStep < totalSteps) {
+        if (currentStep === 3) updateReview();
+        goToStep(currentStep + 1);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) goToStep(currentStep - 1);
+    }
+
+    function updateReview() {
+      const name = document.getElementById('f-name').value || '—';
+      const email = document.getElementById('f-email').value || '—';
+      const persons = document.getElementById('f-persons').value || '—';
+      const start = document.getElementById('f-start').value;
+      const end = document.getElementById('f-end').value;
+      const fmt = d => d ? new Date(d).toLocaleDateString('es-ES', { day: '2-digit', month: 'short' }) : '—';
+      document.getElementById('r-servicio').textContent = selectedService;
+      document.getElementById('r-nombre').textContent = name;
+      document.getElementById('r-email').textContent = email;
+      document.getElementById('r-personas').textContent = persons;
+      document.getElementById('r-fechas').textContent = `${fmt(start)} → ${fmt(end)} 2026`;
+      // Simple pricing logic
+      const prices = { 'Habitación Doble': 180, 'Suite Ejecutiva': 350, 'Mesa para 4 personas': 150, 'Consulta Odontológica': 60 };
+      const pricePerNight = prices[selectedService] || 180;
+      let total = pricePerNight;
+      if (start && end) {
+        const days = Math.max(1, Math.ceil((new Date(end) - new Date(start)) / (1000 * 60 * 60 * 24)));
+        if (['Habitación Doble', 'Suite Ejecutiva'].includes(selectedService)) total = pricePerNight * days;
+      }
+      document.getElementById('r-total').textContent = '$' + total.toLocaleString('es-CO');
+    }
+
+    function confirmBooking() {
+      const ref = 'SR-' + String(Math.floor(Math.random() * 900 + 100));
+      const data = {
+        ref: ref,
+        servicio: document.getElementById('r-servicio').textContent,
+        nombre: document.getElementById('r-nombre').textContent,
+        email: document.getElementById('r-email').textContent,
+        personas: document.getElementById('r-personas').textContent,
+        fechas: document.getElementById('r-fechas').textContent,
+        total: document.getElementById('r-total').textContent
+      };
+      localStorage.setItem('spacereserve_booking', JSON.stringify(data));
+      window.location.href = 'confirmacion.html?ref=' + ref;
+    }
+
+    // Read URL params to pre-select service
+    const params = new URLSearchParams(window.location.search);
+    const svc = params.get('servicio');
+    if (svc) {
+      const labels = document.querySelectorAll('#step-1 label');
+      const map = { 'habitacion-doble': 'Habitación Doble', 'suite-ejecutiva': 'Suite Ejecutiva', 'mesa-4': 'Mesa para 4 personas', 'consulta-odontologica': 'Consulta Odontológica' };
+      const match = map[svc];
+      if (match) {
+        labels.forEach(l => { const inp = l.querySelector('input'); if (inp.value === match) { inp.checked = true; l.classList.add('border-primary-500', 'bg-primary-50'); selectedService = match; } });
+      }
+    }
+  </script>
 </body>
 </html>

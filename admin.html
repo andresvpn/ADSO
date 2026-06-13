@@ -20,15 +20,16 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
-  <!-- NAV -->
   <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <a href="index.html" class="text-xl font-extrabold tracking-tight text-slate-900">Space<span class="text-primary-600">Reserve</span></a>
         <div class="hidden md:flex items-center gap-8 text-sm font-medium">
           <a href="index.html" class="text-slate-500 hover:text-slate-800 transition">Inicio</a>
+          <a href="servicios.html" class="text-slate-500 hover:text-slate-800 transition">Servicios</a>
           <a href="reserva.html" class="text-slate-500 hover:text-slate-800 transition">Reservar</a>
           <a href="admin.html" class="text-primary-600 border-b-2 border-primary-600 pb-1">Admin</a>
+          <a href="perfil.html" class="text-slate-500 hover:text-slate-800 transition">Mi Perfil</a>
           <a href="index.html" class="ml-4 bg-slate-100 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-200 transition text-sm font-semibold">Cerrar sesión</a>
         </div>
         <button class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" onclick="this.nextElementSibling.classList.toggle('hidden')">
@@ -37,104 +38,51 @@
       </div>
       <div class="hidden md:hidden pb-4 space-y-2 text-sm font-medium">
         <a href="index.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Inicio</a>
+        <a href="servicios.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Servicios</a>
         <a href="reserva.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Reservar</a>
         <a href="admin.html" class="block px-3 py-2 rounded-lg bg-primary-50 text-primary-700">Admin</a>
+        <a href="perfil.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Mi Perfil</a>
         <a href="index.html" class="block px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-center font-semibold">Cerrar sesión</a>
       </div>
     </div>
   </nav>
 
-  <!-- DASHBOARD -->
   <main class="flex-1 py-10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-8">
-        <h1 class="text-3xl font-bold text-slate-900">Panel Administrativo</h1>
-        <p class="text-slate-500 mt-1">Gestión de reservaciones activas — SpaceReserve</p>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div><h1 class="text-3xl font-bold text-slate-900">Panel Administrativo</h1><p class="text-slate-500 mt-1">Gestión de reservaciones activas — SpaceReserve</p></div>
+        <a href="reserva.html" class="bg-primary-600 text-white px-5 py-2.5 rounded-xl font-semibold hover:bg-primary-700 transition shadow-sm text-sm text-center">+ Nueva reserva</a>
       </div>
 
       <!-- STATS -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10">
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Total Reservas</p>
-          <p class="text-3xl font-bold text-slate-900 mt-1">5</p>
-          <p class="text-xs text-slate-400 mt-1">+2 esta semana</p>
-        </div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Activas</p>
-          <p class="text-3xl font-bold text-emerald-600 mt-1">3</p>
-          <p class="text-xs text-emerald-500 mt-1">✔ 100% pagadas</p>
-        </div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Pendientes</p>
-          <p class="text-3xl font-bold text-amber-500 mt-1">1</p>
-          <p class="text-xs text-amber-400 mt-1">⏳ Pendiente de pago</p>
-        </div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Canceladas</p>
-          <p class="text-3xl font-bold text-red-500 mt-1">1</p>
-          <p class="text-xs text-red-400 mt-1">✕ Sin reembolso</p>
-        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Total</p><span class="w-8 h-8 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center text-xs font-bold">5</span></div><p class="text-3xl font-bold text-slate-900 mt-2">5</p><p class="text-xs text-slate-400 mt-1"><span class="text-emerald-500 font-medium">+2</span> esta semana</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Activas</p><span class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center text-xs font-bold">3</span></div><p class="text-3xl font-bold text-emerald-600 mt-2">3</p><p class="text-xs text-emerald-500 mt-1">100% pagadas</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Pendientes</p><span class="w-8 h-8 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center text-xs font-bold">1</span></div><p class="text-3xl font-bold text-amber-500 mt-2">1</p><p class="text-xs text-amber-400 mt-1">Pendiente de pago</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm"><div class="flex items-center justify-between"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Canceladas</p><span class="w-8 h-8 bg-red-100 text-red-600 rounded-lg flex items-center justify-center text-xs font-bold">1</span></div><p class="text-3xl font-bold text-red-500 mt-2">1</p><p class="text-xs text-red-400 mt-1">Sin reembolso</p></div>
+      </div>
+
+      <!-- SEARCH & FILTER -->
+      <div class="flex flex-col sm:flex-row gap-4 mb-6">
+        <div class="relative flex-1"><svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" id="search-input" oninput="filterTable()" placeholder="Buscar por cliente, referencia o servicio..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" /></div>
+        <select id="status-filter" onchange="filterTable()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm focus:ring-2 focus:ring-primary-500 outline-none transition"><option value="all">Todos los estados</option><option value="activa">Activa</option><option value="pendiente">Pendiente</option><option value="cancelada">Cancelada</option></select>
       </div>
 
       <!-- TABLE -->
       <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
         <div class="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between">
-          <h2 class="text-lg font-bold text-slate-900">Reservas recientes</h2>
-          <span class="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded-full font-medium">Últimas 5</span>
+          <h2 class="text-lg font-bold text-slate-900">Reservas</h2>
+          <span class="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded-full font-medium" id="row-count">5 registros</span>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
-            <thead>
-              <tr class="bg-slate-50 text-left">
-                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Ref.</th>
-                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Cliente</th>
-                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider hidden sm:table-cell">Servicio</th>
-                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider hidden md:table-cell">Fechas</th>
-                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Estado</th>
-                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Acciones</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100">
-              <tr class="hover:bg-slate-50 transition">
-                <td class="px-5 py-4 font-bold text-primary-600">SR-001</td>
-                <td class="px-5 py-4"><div class="font-medium text-slate-900">Carlos Martínez</div><div class="text-xs text-slate-400">carlos@mail.com</div></td>
-                <td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Habitación Doble</td>
-                <td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">01 Jun → 05 Jun</td>
-                <td class="px-5 py-4"><span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">Activa</span></td>
-                <td class="px-5 py-4"><div class="flex gap-1.5"><button class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">✔</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td>
-              </tr>
-              <tr class="hover:bg-slate-50 transition">
-                <td class="px-5 py-4 font-bold text-primary-600">SR-002</td>
-                <td class="px-5 py-4"><div class="font-medium text-slate-900">Laura Gómez</div><div class="text-xs text-slate-400">laura@mail.com</div></td>
-                <td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Mesa para 4 personas</td>
-                <td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">02 Jun</td>
-                <td class="px-5 py-4"><span class="inline-block bg-amber-100 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-full">Pendiente</span></td>
-                <td class="px-5 py-4"><div class="flex gap-1.5"><button class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">✔</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td>
-              </tr>
-              <tr class="hover:bg-slate-50 transition">
-                <td class="px-5 py-4 font-bold text-primary-600">SR-003</td>
-                <td class="px-5 py-4"><div class="font-medium text-slate-900">Andrés Torres</div><div class="text-xs text-slate-400">andres@mail.com</div></td>
-                <td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Suite Ejecutiva</td>
-                <td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">03 Jun → 07 Jun</td>
-                <td class="px-5 py-4"><span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">Activa</span></td>
-                <td class="px-5 py-4"><div class="flex gap-1.5"><button class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">✔</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td>
-              </tr>
-              <tr class="hover:bg-slate-50 transition">
-                <td class="px-5 py-4 font-bold text-primary-600">SR-004</td>
-                <td class="px-5 py-4"><div class="font-medium text-slate-900">María Vargas</div><div class="text-xs text-slate-400">maria@mail.com</div></td>
-                <td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Consulta Odontológica</td>
-                <td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">04 Jun</td>
-                <td class="px-5 py-4"><span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">Activa</span></td>
-                <td class="px-5 py-4"><div class="flex gap-1.5"><button class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">✔</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td>
-              </tr>
-              <tr class="hover:bg-slate-50 transition">
-                <td class="px-5 py-4 font-bold text-red-500">SR-005</td>
-                <td class="px-5 py-4"><div class="font-medium text-slate-900">Pedro Ruiz</div><div class="text-xs text-slate-400">pedro@mail.com</div></td>
-                <td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Habitación Sencilla</td>
-                <td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">10 Jun → 12 Jun</td>
-                <td class="px-5 py-4"><span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">Cancelada</span></td>
-                <td class="px-5 py-4"><div class="flex gap-1.5"><button class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">✔</button></div></td>
-              </tr>
+            <thead><tr class="bg-slate-50 text-left"><th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Ref.</th><th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Cliente</th><th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider hidden sm:table-cell">Servicio</th><th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider hidden md:table-cell">Fechas</th><th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Estado</th><th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Acciones</th></tr></thead>
+            <tbody class="divide-y divide-slate-100" id="table-body">
+              <tr class="hover:bg-slate-50 transition" data-status="activa"><td class="px-5 py-4 font-bold text-primary-600">SR-001</td><td class="px-5 py-4"><div class="font-medium text-slate-900">Carlos Martínez</div><div class="text-xs text-slate-400">carlos@mail.com</div></td><td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Habitación Doble</td><td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">01 Jun → 05 Jun</td><td class="px-5 py-4"><span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">Activa</span></td><td class="px-5 py-4"><div class="flex gap-1.5"><button onclick='openModal("SR-001","Carlos Martínez","Habitación Doble","01 Jun → 05 Jun","Activa","carlos@mail.com")' class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">Ver</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td></tr>
+              <tr class="hover:bg-slate-50 transition" data-status="pendiente"><td class="px-5 py-4 font-bold text-primary-600">SR-002</td><td class="px-5 py-4"><div class="font-medium text-slate-900">Laura Gómez</div><div class="text-xs text-slate-400">laura@mail.com</div></td><td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Mesa para 4 personas</td><td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">02 Jun</td><td class="px-5 py-4"><span class="inline-block bg-amber-100 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-full">Pendiente</span></td><td class="px-5 py-4"><div class="flex gap-1.5"><button onclick='openModal("SR-002","Laura Gómez","Mesa para 4 personas","02 Jun","Pendiente","laura@mail.com")' class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">Ver</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td></tr>
+              <tr class="hover:bg-slate-50 transition" data-status="activa"><td class="px-5 py-4 font-bold text-primary-600">SR-003</td><td class="px-5 py-4"><div class="font-medium text-slate-900">Andrés Torres</div><div class="text-xs text-slate-400">andres@mail.com</div></td><td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Suite Ejecutiva</td><td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">03 Jun → 07 Jun</td><td class="px-5 py-4"><span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">Activa</span></td><td class="px-5 py-4"><div class="flex gap-1.5"><button onclick='openModal("SR-003","Andrés Torres","Suite Ejecutiva","03 Jun → 07 Jun","Activa","andres@mail.com")' class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">Ver</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td></tr>
+              <tr class="hover:bg-slate-50 transition" data-status="activa"><td class="px-5 py-4 font-bold text-primary-600">SR-004</td><td class="px-5 py-4"><div class="font-medium text-slate-900">María Vargas</div><div class="text-xs text-slate-400">maria@mail.com</div></td><td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Consulta Odontológica</td><td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">04 Jun</td><td class="px-5 py-4"><span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">Activa</span></td><td class="px-5 py-4"><div class="flex gap-1.5"><button onclick='openModal("SR-004","María Vargas","Consulta Odontológica","04 Jun","Activa","maria@mail.com")' class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">Ver</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td></tr>
+              <tr class="hover:bg-slate-50 transition" data-status="cancelada"><td class="px-5 py-4 font-bold text-red-500">SR-005</td><td class="px-5 py-4"><div class="font-medium text-slate-900">Pedro Ruiz</div><div class="text-xs text-slate-400">pedro@mail.com</div></td><td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Habitación Sencilla</td><td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">10 Jun → 12 Jun</td><td class="px-5 py-4"><span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">Cancelada</span></td><td class="px-5 py-4"><div class="flex gap-1.5"><button onclick='openModal("SR-005","Pedro Ruiz","Habitación Sencilla","10 Jun → 12 Jun","Cancelada","pedro@mail.com")' class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">Ver</button></div></td></tr>
             </tbody>
           </table>
         </div>
@@ -142,14 +90,65 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-white border-t border-slate-200 py-8 mt-10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-      <span class="font-semibold text-slate-800">Space<span class="text-primary-600">Reserve</span></span>
-      <div class="flex gap-6"><a href="index.html" class="hover:text-slate-600 transition">Inicio</a><a href="reserva.html" class="hover:text-slate-600 transition">Reservar</a><a href="admin.html" class="hover:text-slate-600 transition">Admin</a></div>
-      <span>&copy; 2026 SpaceReserve. Todos los derechos reservados.</span>
+  <!-- MODAL -->
+  <div id="detail-modal" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target===this)this.classList.add('hidden')">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 sm:p-8 w-full max-w-md">
+      <div class="flex justify-between items-center mb-5"><h2 class="text-xl font-bold text-slate-900">Detalle de Reserva</h2><button onclick="document.getElementById('detail-modal').classList.add('hidden')" class="text-slate-400 hover:text-slate-600 text-2xl leading-none">&times;</button></div>
+      <div class="space-y-4" id="modal-content">
+        <div class="bg-slate-50 rounded-xl p-4 text-center"><p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Referencia</p><p class="text-2xl font-bold text-primary-600" id="modal-ref">—</p></div>
+        <div class="space-y-3">
+          <div class="flex justify-between text-sm"><span class="text-slate-400">Cliente</span><span class="font-medium text-slate-900" id="modal-client">—</span></div>
+          <div class="flex justify-between text-sm"><span class="text-slate-400">Correo</span><span class="font-medium text-slate-900" id="modal-email">—</span></div>
+          <div class="flex justify-between text-sm"><span class="text-slate-400">Servicio</span><span class="font-medium text-slate-900" id="modal-service">—</span></div>
+          <div class="flex justify-between text-sm"><span class="text-slate-400">Fechas</span><span class="font-medium text-slate-900" id="modal-dates">—</span></div>
+          <div class="flex justify-between text-sm"><span class="text-slate-400">Estado</span><span id="modal-status">—</span></div>
+          <div class="flex justify-between text-sm border-t border-slate-100 pt-3"><span class="text-slate-500">Pago</span><span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full">Pagado (Wompi)</span></div>
+        </div>
+      </div>
+      <div class="mt-6 flex gap-3"><button class="flex-1 bg-primary-600 text-white py-2.5 rounded-xl font-semibold hover:bg-primary-700 transition text-sm">Editar</button><button onclick="document.getElementById('detail-modal').classList.add('hidden')" class="flex-1 bg-white text-slate-600 py-2.5 rounded-xl font-semibold border border-slate-200 hover:border-slate-300 transition text-sm">Cerrar</button></div>
+    </div>
+  </div>
+
+  <footer class="bg-slate-900 text-slate-400 py-12 mt-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div><span class="text-xl font-extrabold tracking-tight text-white">Space<span class="text-primary-400">Reserve</span></span><p class="text-sm mt-3 leading-relaxed">Plataforma inteligente de reservas para espacios y servicios.</p></div>
+        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Navegación</h4><ul class="space-y-2 text-sm"><li><a href="index.html" class="hover:text-white transition">Inicio</a></li><li><a href="servicios.html" class="hover:text-white transition">Servicios</a></li><li><a href="reserva.html" class="hover:text-white transition">Reservar</a></li><li><a href="admin.html" class="hover:text-white transition">Admin</a></li></ul></div>
+        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Soporte</h4><ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white transition">Centro de ayuda</a></li><li><a href="#" class="hover:text-white transition">Términos y condiciones</a></li><li><a href="#" class="hover:text-white transition">Política de privacidad</a></li></ul></div>
+        <div><h4 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Contacto</h4><ul class="space-y-2 text-sm"><li>contacto@spacereserve.com</li><li>+57 300 123 4567</li><li>Bogotá, Colombia</li></ul></div>
+      </div>
+      <div class="border-t border-slate-800 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"><span>&copy; 2026 SpaceReserve. Todos los derechos reservados.</span><div class="flex gap-6"><a href="#" class="hover:text-white transition">LinkedIn</a><a href="#" class="hover:text-white transition">Twitter</a><a href="#" class="hover:text-white transition">Instagram</a></div></div>
     </div>
   </footer>
 
+  <script>
+    function filterTable() {
+      const q = document.getElementById('search-input').value.toLowerCase();
+      const s = document.getElementById('status-filter').value;
+      let visible = 0;
+      document.querySelectorAll('#table-body tr').forEach(row => {
+        const text = row.textContent.toLowerCase();
+        const status = row.dataset.status;
+        const matchSearch = !q || text.includes(q);
+        const matchStatus = s === 'all' || status === s;
+        const show = matchSearch && matchStatus;
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('row-count').textContent = visible + ' registro' + (visible !== 1 ? 's' : '');
+    }
+
+    function openModal(ref, client, service, dates, status, email) {
+      document.getElementById('modal-ref').textContent = ref;
+      document.getElementById('modal-client').textContent = client;
+      document.getElementById('modal-email').textContent = email;
+      document.getElementById('modal-service').textContent = service;
+      document.getElementById('modal-dates').textContent = dates;
+      const statusEl = document.getElementById('modal-status');
+      const colors = { 'Activa': 'bg-emerald-100 text-emerald-700', 'Pendiente': 'bg-amber-100 text-amber-700', 'Cancelada': 'bg-red-100 text-red-700' };
+      statusEl.innerHTML = `<span class="inline-block text-xs font-semibold px-2.5 py-1 rounded-full ${colors[status] || 'bg-slate-100 text-slate-700'}">${status}</span>`;
+      document.getElementById('detail-modal').classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
