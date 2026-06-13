@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserva Confirmada — SpaceReserve</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: { primary: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' } }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- NAV -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-xl font-extrabold tracking-tight text-slate-900">Space<span class="text-primary-600">Reserve</span></a>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="index.html" class="text-slate-500 hover:text-slate-800 transition">Inicio</a>
+          <a href="reserva.html" class="text-slate-500 hover:text-slate-800 transition">Reservar</a>
+          <a href="admin.html" class="text-slate-500 hover:text-slate-800 transition">Admin</a>
+          <a href="index.html" class="ml-4 bg-slate-100 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-200 transition text-sm font-semibold">Cerrar sesión</a>
+        </div>
+        <button class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" onclick="this.nextElementSibling.classList.toggle('hidden')">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+      <div class="hidden md:hidden pb-4 space-y-2 text-sm font-medium">
+        <a href="index.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Inicio</a>
+        <a href="reserva.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Reservar</a>
+        <a href="admin.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Admin</a>
+        <a href="index.html" class="block px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-center font-semibold">Cerrar sesión</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONFIRMATION -->
+  <main class="flex-1 flex items-center justify-center py-12">
+    <div class="max-w-lg mx-auto px-4 w-full">
+      <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 sm:p-10 text-center">
+        <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-5">
+          <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">¡Reservación Confirmada!</h1>
+        <p class="text-slate-500 mt-2">Tu reserva ha sido registrada y pagada exitosamente.</p>
+        <div class="bg-sky-50 border border-sky-200 rounded-xl py-4 px-5 mt-6">
+          <p class="text-xs font-semibold text-sky-600 uppercase tracking-wide mb-1">Número de referencia</p>
+          <p class="text-2xl font-bold text-primary-600">SR-005</p>
+        </div>
+        <div class="border-t border-slate-100 mt-6 pt-6 space-y-3 text-left">
+          <div class="flex justify-between text-sm"><span class="text-slate-400">Cliente</span><span class="font-medium text-slate-900">Carlos Martínez</span></div>
+          <div class="flex justify-between text-sm"><span class="text-slate-400">Servicio</span><span class="font-medium text-slate-900">Habitación Doble</span></div>
+          <div class="flex justify-between text-sm"><span class="text-slate-400">Fechas</span><span class="font-medium text-slate-900">10 Jun → 15 Jun 2026</span></div>
+          <div class="flex justify-between text-sm border-t border-slate-100 pt-3"><span class="text-slate-400">Estado del pago</span><span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full">Pagado (Wompi)</span></div>
+        </div>
+        <div class="mt-8 space-y-3">
+          <button class="w-full bg-primary-600 text-white py-2.5 rounded-xl font-semibold hover:bg-primary-700 transition shadow-md shadow-primary-200">Descargar Comprobante</button>
+          <a href="index.html" class="block text-primary-600 hover:text-primary-700 text-sm font-medium">Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+      <span class="font-semibold text-slate-800">Space<span class="text-primary-600">Reserve</span></span>
+      <div class="flex gap-6"><a href="index.html" class="hover:text-slate-600 transition">Inicio</a><a href="reserva.html" class="hover:text-slate-600 transition">Reservar</a><a href="admin.html" class="hover:text-slate-600 transition">Admin</a></div>
+      <span>&copy; 2026 SpaceReserve. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+</body>
+</html>

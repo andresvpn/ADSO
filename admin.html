@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Admin — SpaceReserve</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: { primary: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' } }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- NAV -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-xl font-extrabold tracking-tight text-slate-900">Space<span class="text-primary-600">Reserve</span></a>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="index.html" class="text-slate-500 hover:text-slate-800 transition">Inicio</a>
+          <a href="reserva.html" class="text-slate-500 hover:text-slate-800 transition">Reservar</a>
+          <a href="admin.html" class="text-primary-600 border-b-2 border-primary-600 pb-1">Admin</a>
+          <a href="index.html" class="ml-4 bg-slate-100 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-200 transition text-sm font-semibold">Cerrar sesión</a>
+        </div>
+        <button class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" onclick="this.nextElementSibling.classList.toggle('hidden')">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+      <div class="hidden md:hidden pb-4 space-y-2 text-sm font-medium">
+        <a href="index.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Inicio</a>
+        <a href="reserva.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Reservar</a>
+        <a href="admin.html" class="block px-3 py-2 rounded-lg bg-primary-50 text-primary-700">Admin</a>
+        <a href="index.html" class="block px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-center font-semibold">Cerrar sesión</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- DASHBOARD -->
+  <main class="flex-1 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-slate-900">Panel Administrativo</h1>
+        <p class="text-slate-500 mt-1">Gestión de reservaciones activas — SpaceReserve</p>
+      </div>
+
+      <!-- STATS -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10">
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Total Reservas</p>
+          <p class="text-3xl font-bold text-slate-900 mt-1">5</p>
+          <p class="text-xs text-slate-400 mt-1">+2 esta semana</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Activas</p>
+          <p class="text-3xl font-bold text-emerald-600 mt-1">3</p>
+          <p class="text-xs text-emerald-500 mt-1">✔ 100% pagadas</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Pendientes</p>
+          <p class="text-3xl font-bold text-amber-500 mt-1">1</p>
+          <p class="text-xs text-amber-400 mt-1">⏳ Pendiente de pago</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Canceladas</p>
+          <p class="text-3xl font-bold text-red-500 mt-1">1</p>
+          <p class="text-xs text-red-400 mt-1">✕ Sin reembolso</p>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+        <div class="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between">
+          <h2 class="text-lg font-bold text-slate-900">Reservas recientes</h2>
+          <span class="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded-full font-medium">Últimas 5</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-left">
+                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Ref.</th>
+                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Cliente</th>
+                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider hidden sm:table-cell">Servicio</th>
+                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider hidden md:table-cell">Fechas</th>
+                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Estado</th>
+                <th class="px-5 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Acciones</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50 transition">
+                <td class="px-5 py-4 font-bold text-primary-600">SR-001</td>
+                <td class="px-5 py-4"><div class="font-medium text-slate-900">Carlos Martínez</div><div class="text-xs text-slate-400">carlos@mail.com</div></td>
+                <td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Habitación Doble</td>
+                <td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">01 Jun → 05 Jun</td>
+                <td class="px-5 py-4"><span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">Activa</span></td>
+                <td class="px-5 py-4"><div class="flex gap-1.5"><button class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">✔</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition">
+                <td class="px-5 py-4 font-bold text-primary-600">SR-002</td>
+                <td class="px-5 py-4"><div class="font-medium text-slate-900">Laura Gómez</div><div class="text-xs text-slate-400">laura@mail.com</div></td>
+                <td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Mesa para 4 personas</td>
+                <td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">02 Jun</td>
+                <td class="px-5 py-4"><span class="inline-block bg-amber-100 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-full">Pendiente</span></td>
+                <td class="px-5 py-4"><div class="flex gap-1.5"><button class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">✔</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition">
+                <td class="px-5 py-4 font-bold text-primary-600">SR-003</td>
+                <td class="px-5 py-4"><div class="font-medium text-slate-900">Andrés Torres</div><div class="text-xs text-slate-400">andres@mail.com</div></td>
+                <td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Suite Ejecutiva</td>
+                <td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">03 Jun → 07 Jun</td>
+                <td class="px-5 py-4"><span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">Activa</span></td>
+                <td class="px-5 py-4"><div class="flex gap-1.5"><button class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">✔</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition">
+                <td class="px-5 py-4 font-bold text-primary-600">SR-004</td>
+                <td class="px-5 py-4"><div class="font-medium text-slate-900">María Vargas</div><div class="text-xs text-slate-400">maria@mail.com</div></td>
+                <td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Consulta Odontológica</td>
+                <td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">04 Jun</td>
+                <td class="px-5 py-4"><span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">Activa</span></td>
+                <td class="px-5 py-4"><div class="flex gap-1.5"><button class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">✔</button><button class="text-xs bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 px-2.5 py-1.5 rounded-lg font-medium transition">✕</button></div></td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition">
+                <td class="px-5 py-4 font-bold text-red-500">SR-005</td>
+                <td class="px-5 py-4"><div class="font-medium text-slate-900">Pedro Ruiz</div><div class="text-xs text-slate-400">pedro@mail.com</div></td>
+                <td class="px-5 py-4 text-slate-600 hidden sm:table-cell">Habitación Sencilla</td>
+                <td class="px-5 py-4 text-slate-500 text-xs hidden md:table-cell">10 Jun → 12 Jun</td>
+                <td class="px-5 py-4"><span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">Cancelada</span></td>
+                <td class="px-5 py-4"><div class="flex gap-1.5"><button class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1.5 rounded-lg font-medium transition">✔</button></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-8 mt-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+      <span class="font-semibold text-slate-800">Space<span class="text-primary-600">Reserve</span></span>
+      <div class="flex gap-6"><a href="index.html" class="hover:text-slate-600 transition">Inicio</a><a href="reserva.html" class="hover:text-slate-600 transition">Reservar</a><a href="admin.html" class="hover:text-slate-600 transition">Admin</a></div>
+      <span>&copy; 2026 SpaceReserve. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
